@@ -7,7 +7,7 @@ include_once("components/navbar.php");
     <!-- Start: 1 Row 2 Columns -->
     <div class="mt-5 mb-5">
         <div class="container">
-            <div class="whitish py-5 px-sm-0 mx-sm-0 px-md-5 mycard rounded shdow">
+            <div class="whitish py-5 px-sm-0 mx-sm-0 px-md-5 mycard rounded shadow">
                 <div class="row mx-2">
                     <div class="col-auto flex-grow-1 px-0">
                         <h1 class="myred-text se mb-0 w-100 d-inline-block ml-0 px-0"><?php echo "$q's";?>&nbsp;<img class="logo pb-3 d-inline-block" src="/assets/img/til_rect.png?h=c9f2fb6f4f31416c7f7314d7d8e0236d">meline<br></h1>

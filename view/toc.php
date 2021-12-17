@@ -6,7 +6,7 @@ include_once("components/navbar.php");
     <!-- Start: 1 Row 2 Columns -->
     <div class="mt-5 mb-5">
         <div class="container">
-            <div class="whitish py-5 px-5 mycard rounded shdow">
+            <div class="whitish py-5 px-5 mycard rounded shadow">
                 <h1 class="myred-text se mb-0 w-100 d-inline-block ml-0 px-0 my-3">Terms and Conditions&nbsp;<br></h1>
                 <div class="d-inline-block bg-white border rounded px-4 py-4 my-3">
                     <h3 class="se d-inline-block mygrey-text">Using this platform</h3>

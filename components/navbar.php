@@ -53,13 +53,13 @@ HTML;
                         <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/new">New TIL</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/user/$username/til">Personal tilmeline</a>
+                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/til/$username">My stuff</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/public/til">Public tilmeline</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/user/$username/settings">Settings</a>
+                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/settings">Settings</a>
                 </li>
                 </ul>
                 <span class="navbar-text actions"> <a class="login py-2 px-3 border myred-border myred-text se pt-3 rounded border-2 font-weight-bold letter-spacing-1" href="/logout">Logout</a>

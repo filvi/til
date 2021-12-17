@@ -114,43 +114,43 @@ Route::add('/new',function(){
 // });
 
 Route::add('/til/([/-0-9a-zA-Z]*)',function($q){
-    // if($_SESSION['logged']){
-      include_once __DIR__ . "/view/user.php";
+  // if($_SESSION['logged']){
+    include_once __DIR__ . "/view/personal-til.php";
     // } else {
-    //   include_once __DIR__ . "/view/403.php";
-    // }
+      //   include_once __DIR__ . "/view/403.php";
+      // }
 });
 Route::add('/til/([/-0-9a-zA-Z]*)/',function($q){
-    // if($_SESSION['logged']){
-      include_once __DIR__ . "/view/user.php";
+  // if($_SESSION['logged']){
+    include_once __DIR__ . "/view/personal-til.php";
     // } else {
-    //   include_once __DIR__ . "/view/403.php";
-    // }
+      //   include_once __DIR__ . "/view/403.php";
+      // }
 });
 
 Route::add('/settings/([/-0-9a-zA-Z]*)/',function($q){
   // if($_SESSION['logged']){
     include_once __DIR__ . "/view/settings.php";
-  // } else {
-  //   include_once __DIR__ . "/view/403.php";
-  // }
-});
-Route::add('/settings/([/-0-9a-zA-Z]*)',function($q){
-  // if($_SESSION['logged']){
-    include_once __DIR__ . "/view/settings.php";
-  // } else {
-  //   include_once __DIR__ . "/view/403.php";
-  // }
-});
-
-// =============================================================================
-// ======================      PUBLIC TIL        ===============================
-// =============================================================================
-// =============================================================================
-
-Route::add('/public/til',function(){
-  include_once __DIR__ . "/view/public-til.php";
-});
+    // } else {
+      //   include_once __DIR__ . "/view/403.php";
+      // }
+    });
+    Route::add('/settings/([/-0-9a-zA-Z]*)',function($q){
+      // if($_SESSION['logged']){
+        include_once __DIR__ . "/view/settings.php";
+        // } else {
+          //   include_once __DIR__ . "/view/403.php";
+          // }
+        });
+        
+  // =============================================================================
+  // ======================      PUBLIC TIL        ===============================
+  // =============================================================================
+  // =============================================================================
+  
+  Route::add('/public/til',function(){
+    include_once __DIR__ . "/view/public-til.php";
+  });
 
 // ==========================      QUERY        ================================
 // =============================================================================

@@ -312,12 +312,24 @@ footer {
     border-width: 3px;
     color: #fff
 }
+.til-button-inactive:hover{
+    border-color: var(--mygrey4) !important;
+    background-color: transparent !important;
+    border-width: 3px;
+    color: var(--mygrey4);
+}
 
 .til-button-active {
     border-color: var(--mygrey0) !important;
     background-color: var(--mygrey0) !important;
     border-width: 3px;
     color: #fff
+}
+.til-button-active:hover {
+    border-color: var(--mygrey0) !important;
+    background-color: transparent !important;
+    border-width: 3px;
+    color: var(--mygrey0);
 }
 
 .delete-btn,
@@ -383,7 +395,7 @@ footer {
 .btn-outline-red:active,
 .btn-outline-red:focus,
 .btn-outline-red:hover {
-    border: 2px solid !important;
+    border: 3px solid #a92624 !important;
     color: #fff !important;
     background-color: var(--myred) !important
 }
@@ -416,13 +428,13 @@ html {
 }
 
 .btn-outline-teal:hover {
-    border: 2px solid !important;
+    border: 3px solid #1c6d67 !important;
     color: #fff !important;
     background-color: var(--myteal) !important
 }
 
 .btn-outline-teal {
-    border: 2px solid !important;
+    border: 3px solid !important;
     color: var(--myteal) !important;
     background-color: transparent !important
 }
@@ -941,7 +953,7 @@ img {
 }
 
 input:checked+.slider {
-    background-color: #2196f3
+    background-color: #DC322F
 }
 
 input:checked+.slider:before {
