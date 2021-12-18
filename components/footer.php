@@ -32,7 +32,7 @@
                 <div class="col-sm-6 col-md-3 item">
                     <h3 class="se letter-spacing-1">Need help?</h3>
                     <ul>
-                        <li><a href="#">Manage notifications/emails</a></li>
+                        <li><a href="#">FAQ</a></li>
                         <li><a href="#">Something went wrong?</a></li>
                         <li><a href="#">Suggests improvements</a></li>
                     </ul>

@@ -14,8 +14,18 @@ include_once("components/navbar.php");
                         <form method="post" action="/post-login">
                             <h2 class="sr-only">Login Form</h2>
                             <div class="illustration"></div>
-                            <div class="form-group"><label class="ml-1 mb-1">Username/email</label><input class="form-control py-4" type="email" id="email" name="email" required="required" value="<?php if(isset($username)){echo $username;}?>"></div>
-                            <div class="form-group"><label class="ml-1 mb-1">Password</label><input class="form-control py-4" type="password" id="password" name="password" required="required"></div>
+                            <div class="form-group">
+                                <label class="ml-1 mb-1">
+                                    Username/email
+                                </label>
+                                <input class="form-control py-4"  pattern="[a-zA-Z0-9-_.]{5, 16}" maxlength="16" type="text" id="username" name="username" required="required" value="<?php if(isset($username)){echo $username;}?>">
+                            </div>
+                            <div class="form-group">
+                                <label class="ml-1 mb-1">
+                                    Password
+                                </label>
+                                <input class="form-control py-4" type="password" id="password" maxlength="200" name="password" required="required">
+                            </div>
                             <div class="form-group">
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label mb-4" for="formCheck-1">Remember me</label></div>
                             </div>

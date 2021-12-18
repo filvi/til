@@ -2,7 +2,11 @@
 include_once("components/head.php");
 include_once("components/navbar.php");
 
-$type = "private";
+if($_SESSION['username'] == $q){
+    $type = "private";
+} else {
+    $type = "public";
+}
 ?>
 
     <!-- Start: 1 Row 2 Columns -->

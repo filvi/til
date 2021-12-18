@@ -2,7 +2,7 @@
 $user = "asdasd";
 $id = "12355";
 $date = "12/12/2021";
-$title = "Cats will rule the world";
+$title = "Cats will rule the  the ";
 $text =<<<TEXT
     Lorem ipsum dolor sit amet,
     consectetur adipiscing elit. Quisque vitae luctus justo, sit amet consequat tortor. Suspendisse potenti.
@@ -77,10 +77,7 @@ $html =<<<HTML
         <h3 class="se d-inline-block mygrey-text flex-grow-1">{{title}} id:{{id}}</h3>
         
             
-                <p class="mb-0 text-center d-inline-block mx-auto px-1">{{date}}</p>
-            
-            
-                <p class="mb-0 text-center d-inline-block mx-auto px-1">{{author}}</p>
+                <p class="se font-weight-bold mb-0  d-block ml-auto px-1">{{date}} <i class="myred-text far fa-hand-point-right"></i> {{user}}</p>
             
         </div>
             <p class="mb-0 mt-1 d-inline-block" style="font-family: Roboto, sans-serif;">{{text}}<br>

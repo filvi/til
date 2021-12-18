@@ -18,7 +18,6 @@ $type = "public";
                     include("components/til_entry.php");
                     include("components/til_entry.php");
                 ?>
-
                 <div id="tape-section" class="tape-section"></div>
             </div>
         </div>

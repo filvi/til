@@ -1021,3 +1021,8 @@ input:focus+.slider {
 input{
     z-index:2;
 }
+
+.input-group-text{
+    background-color: var(--mygrey0)!important;
+    border: 1px solid var(--mygrey0)
+}
