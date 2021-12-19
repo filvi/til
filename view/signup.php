@@ -64,7 +64,7 @@ include_once("components/navbar.php");
                                     <label class="se font-weight-bold form-check-label" for="formCheck-1">I accept the term and conditions<a class="ml-2 myred-text" href="/toc">[ View Document ]</a></label>
                                 </div>
                             </div>
-                            <div class="form-group d-flex d-xl-flex align-items-center align-content-center align-self-center"><button class="btn login py-2 px-3 border myred-bg text-white myred-border border se pt-3 rounded border-2 font-weight-bold letter-spacing-1 fs-2" type="submit">Done</button><button class="btn login py-2 px-3 border myred-border myred-text se pt-3 rounded border-2 font-weight-bold letter-spacing-1 ml-3 fs-2" type="reset">Reset Fields</button></div>
+                            <div class="form-group d-flex d-flex align-items-center align-content-center align-self-center"><button class="btn login py-2 px-3 border myred-bg text-white myred-border border se pt-3 rounded border-2 font-weight-bold letter-spacing-1 fs-2" type="submit">Done</button><button class="btn login py-2 px-3 border myred-border myred-text se pt-3 rounded border-2 font-weight-bold letter-spacing-1 ml-3 fs-2" type="reset">Reset Fields</button></div>
                         </form>
                         <div id="tape-section" class="tape-section"></div>
                     </div>

@@ -7,7 +7,7 @@ include_once("components/navbar.php");
     <div class="my-5 pb-5 h-100">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-xl-flex order-12 order-sm-12 order-md-1 order-lg-1 align-items-xl-center d-flex justify-content-center align-items-start"><img class="homepage-img mx-auto" src="/assets/img/Tillo_homepage_paper.png?h=28ccfaf9e390b5925ed9ce8561ad7c20"></div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex order-12 order-sm-12 order-md-1 order-lg-1 align-items-xl-center d-flex justify-content-center align-items-start"><img class="homepage-img mx-auto" src="/assets/img/Tillo_homepage_paper.png?h=28ccfaf9e390b5925ed9ce8561ad7c20"></div>
                 <div class="col-12 col-md-6 order-sm-1 order-md-1 order-lg-12 order-xl-12">
                     <!-- Start: backup -->
                     <div class="py-md-5 px-md-5 mycard rounded">

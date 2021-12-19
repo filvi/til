@@ -8,7 +8,7 @@
     <div class="mt-5 mb-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 d-xl-flex align-items-xl-center">
+                <div class="col-md-6 d-flex align-items-xl-center">
                     <div class="whitish py-5 px-5 mycard rounded">
                         <h1 class="myred-text se mb-3">Error 404</h1>
                         <h5 class="mygrey-text se font-weight-bold">Page not found</h5>

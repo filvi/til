@@ -8,7 +8,7 @@ include_once("components/navbar.php");
         <div class="container">
             <div class="row">
                 <div class="col order-sm-12 d-md-flex justify-content-center align-items-center"><img src="/assets/img/top%20secret_paper.png?h=dd140522b50b3b0c1d3bf1328d8838ad" style="max-width: 89%;"></div>
-                <div class="col-md-6 d-xl-flex order-sm-1 order-md-1 align-items-xl-center">
+                <div class="col-md-6 d-flex order-sm-1 order-md-1 align-items-xl-center">
                     <div class="whitish py-5 px-5 mycard rounded">
                         <h1 class="myred-text se mb-3">Error 403</h1>
                         <h5 class="mygrey-text se font-weight-bold">You are not supposed to see this page</h5>

@@ -7,7 +7,7 @@ include_once("components/navbar.php");
     <div class="mt-5 mb-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 d-xl-flex align-items-xl-center">
+                <div class="col-md-6 d-flex align-items-xl-center">
                     <div class="align-self-center my-auto whitish py-5 px-5 mycard rounded">
                         <div id="tape-section" class="tape-section"></div>
                         <h1 class="myred-text se">Hurray!</h1>

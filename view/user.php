@@ -18,7 +18,7 @@ if($_SESSION['username'] == $q){
                     <div class="col-auto flex-grow-1 px-0">
                         <h1 class="myred-text se mb-0 w-100 d-inline-block ml-0 px-0"><?php echo "$q's";?>&nbsp;<img class="logo pb-3 d-inline-block" src="/assets/img/til_rect.png?h=c9f2fb6f4f31416c7f7314d7d8e0236d">meline<br></h1>
                     </div>
-                    <div class="col d-xl-flex justify-content-xl-end align-items-xl-center"><label class="mr-2 mb-0 se mt-1" style="font-size:20px;">Search</label><input type="search" class="d-inline-block outline-none py-2 border rounded"></div>
+                    <div class="col d-flex justify-content-xl-end align-items-xl-center"><label class="mr-2 mb-0 se mt-1" style="font-size:20px;">Search</label><input type="search" class="d-inline-block outline-none py-2 border rounded"></div>
                 </div>
                 <?php
                 include("components/til_entry.php");

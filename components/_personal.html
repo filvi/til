@@ -1,0 +1,56 @@
+<div class="row my-3 mx-2">
+    <div class="col-auto d-inline-block mx-0 px-0">
+        <div id="buttons-3" class="mx-0 px-0 w-100 d-flex my-2">
+            <div
+            class="d-flex flex-grow-1 align-items-center bg-white border rounded d-inline-block til-date mr-1 border-3 rounded shadow">
+            <p class="mb-0 text-center d-inline-block mx-auto px-1">{{date}}</p>
+        </div>
+        <div class="d-flex w-100">
+            <div class="mx-1 align-self-end">
+                <button
+                class="btn edit-btn rounded d-inline-block align-self-center border-3  mx-0 px-2 py-2 btn-outline-teal"
+                type="button">
+                <i class="fa fa-pencil"></i>
+            </button>
+        </div>
+        <div class="ml-1 align-self-end">
+            <button
+            class="btn font-weight-bold delete-btn rounded bg-transparent border-3 d-inline-block align-self-center px-2 py-2 btn-outline-red" 
+            type="button">
+            <i class="fa fa-trash">
+                
+                </i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="justify-content-between d-flex my-2" id="buttons-2">
+    <div class="mr-1">
+        <div class="btn til-button-active font-weight-bold px-2 py-2" type="button">D</div>
+    </div>
+    <div class="mx-1">
+        <div class="btn til-button-inactive font-weight-bold px-2 py-2" type="button">W</div>
+    </div>
+    <div class="mx-1">
+        <div class="btn til-button-active rounded font-weight-bold px-2 py-2" type="button">M</div>
+    </div>
+    <div class="ml-1">
+        <div class="btn til-button-inactive font-weight-bold px-2 py-2" type="button">Y</div>
+    </div>
+</div>
+</div>
+<div class="col">
+    <div class=" bg-white border rounded px-4 py-4">
+            <div class="d-flex flex-columns justify-content-end">
+
+            <h3 class="se d-block mygrey-text flex-grow-1">{{title}} id:{{id}}</h3>
+            <p class="se font-weight-bold mb-0  d-block ml-auto px-1">
+                <i class="myred-text fas fa-tags"></i> {{tags}} 
+            </p>
+
+        </div>
+            <p class="mb-0 mt-1 d-inline-block" style="font-family: Roboto, sans-serif;">{{text}}<br>
+            </p>
+        </div>
+    </div>
+</div>
