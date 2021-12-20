@@ -2,13 +2,7 @@
 include_once("components/head.php");
 include_once("components/navbar.php");
 
-// if($_SESSION['username'] == $q){
-    $type = "private";
-// } else {
-//     $type = "public";
-// }
 
-// echo $_SESSION['username'];
 ?>
 
     <!-- Start: 1 Row 2 Columns -->
@@ -24,8 +18,7 @@ include_once("components/navbar.php");
                 <?php
                 include("components/til_entry.php");
                 $columns = ['*'];
-                $user["USER"] = "filvi";
-
+                $user = $_SESSION['username'];
                 show_personal($columns, $user);
                 ?>
 

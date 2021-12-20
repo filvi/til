@@ -16,7 +16,7 @@ $navbar = <<<HTML
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/til/til/public" >Public Tilmeline</a>
+                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/til/public" >Public Tilmeline</a>
                     </li>
                     <li class="nav-item" >
                         <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/the-project" >The Project</a>

@@ -6,23 +6,16 @@ use DevCoder\DotEnv;
 
 
 
-$DB_HOST = getenv('DATABASE_HOST');
-$DB_USER = getenv('DATABASE_USER');
-$DB_PASSWORD = getenv('DATABASE_PASSWORD');
-$DB_NAME = getenv('DATABASE_NAME');
-
 class Database{
-  
+
   // Connect =================================================================
   private static function connect(){
-    global $DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME;
     $conn = new mysqli(getenv('DATABASE_HOST'), getenv('DATABASE_USER'), getenv('DATABASE_PASSWORD'), getenv('DATABASE_NAME'));
     if ($conn->connect_error) {
       error_log("Connection failed: " . $conn->connect_error);
       die("Connection failed: " . $conn->connect_error);
     }
     return $conn;
-    die("no");
   }
   // =========================================================================
     
@@ -36,7 +29,29 @@ class Database{
     // =========================================================================
     
 
-    
+    public static function get_anon(){
+      $conn = self::connect();
+      $sql_animal = "SELECT `ANIMAL` FROM `random` WHERE `ANIMAL` IS NOT NULL ORDER BY RAND() LIMIT 1";
+      $sql_color = "SELECT `COLOR` FROM `random` WHERE `COLOR` IS NOT NULL ORDER BY RAND() LIMIT 1";
+      
+      $animal = $conn->query($sql_animal);
+      $color = $conn->query($sql_color);
+      
+      $ret = [];
+
+      if ($animal->num_rows > 0) {
+        $ret["ANIMAL"] = $animal->fetch_assoc()["ANIMAL"];
+      } 
+
+      if ($color->num_rows > 0) {
+        $ret["COLOR"] = $color->fetch_assoc()["COLOR"];
+      }
+      
+      self::close($conn);
+      return $ret;
+    }
+
+
     // Select all ==============================================================
     public static function select_all(string $table, array $columns,  $limit = False){
         
@@ -72,28 +87,21 @@ class Database{
 
 
 
-    public static function select(string $table, array $columns, array $dict, int $limit = 0){
+    public static function select(string $table, array $columns, string $user, int $limit = 0){
         
         $conn = self::connect();
 
         $sql_col = implode(", ", $columns);
 
-        $where = "";
-        $bind_v = [];
+        $sql = "SELECT $sql_col FROM $table WHERE USER=?";
+        
 
-        foreach($dict as $k => $v){
-          $where .= $k . "=? AND";
-          $bind_v[] = $v;
-        }
-        $where = substr($where, strlen($where) - 4);
-
-        $sql = "SELECT $sql_col FROM $table WHERE  $where";
 
         $stmt = $conn->prepare($sql);
-        $bind = $stmt->bind_param("sss",  ...$bind_v);
-        $exec = $stmt->execute();
-        $stmt->bind_result($result);
-        $stmt->fetch();
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
         
         $ret = [];
         

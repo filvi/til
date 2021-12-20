@@ -2,11 +2,6 @@
 include_once("components/head.php");
 include_once("components/navbar.php");
 
-if($_SESSION['username'] == $q){
-    $type = "private";
-} else {
-    $type = "public";
-}
 //  check if user has given the permission 
 ?>
 

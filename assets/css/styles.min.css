@@ -467,6 +467,10 @@ a[href*="//"]:not([href*="todayilearn.it"])::after {
     content: " [external link, beware]";
     color: var(--myred)
 }
+.whitelist::after {
+    content: " "!important;
+
+}
 
 .navigation-clean,
 .navigation-clean-button,
@@ -1026,4 +1030,10 @@ input{
 .input-group-text{
     background-color: var(--mygrey0)!important;
     border: 1px solid var(--mygrey0)
+}
+
+
+.mycard-footer{
+    background-image: url(../../assets/img/navbar.jpg?h=d65a8cd…) !important;
+    background-repeat: repeat;
 }

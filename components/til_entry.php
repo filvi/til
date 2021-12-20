@@ -3,7 +3,7 @@
 include_once("controller/Database.php");
 
 
-function process_data($rows, $type){
+function process_data(array $rows, $type){
     foreach($rows as $row){
         $id = $row["ID"];
         $user = $row["USER"];
@@ -37,9 +37,9 @@ function process_data($rows, $type){
             ob_start();
             include("components/_public.html");
             $html = ob_get_clean();
-        }elseif($type = "personal"){
+        }elseif($type == "personal"){
             ob_start();
-            include("components/_public.html");
+            include("components/_personal.html");
             $html = ob_get_clean();
         }
     
@@ -47,31 +47,34 @@ function process_data($rows, $type){
         //initialize the tag parsing 
         $tag_html = ""; 
         
-        // create the text for tags
+        // create the text for tags --------------------------------------------
         foreach($tags as $tag){
             $tag = trim($tag);
             $tag_html .= "<span class=\"se, mygrey-text\">$tag</span>,&nbsp;";
         }
-        
         // remove space after last tag
         $tag_html = trim($tag_html, ",&nbsp;");
+        // ---------------------------------------------------------------------
+
         
-
-        // start replacing
-        $html = str_replace("{{id}}", $id, $html);
-
-        // check if anonymous til
+        
+        // check if anonymous til ----------------------------------------------
         if ($is_anonymus){
-            // $color = fopen("components/name_generator/colors.txt", "r");
-            // $animal = fopen("components/name_generator/animals.txt", "r");
+            $anon = Database::get_anon();
+            
+            $animal = strtolower($anon["ANIMAL"]);
+            $color = strtolower($anon["COLOR"]);
 
-            // fclose($animal);
-            // fclose($color);
-            $html = str_replace("{{user}}", "anonymous", $html);
+            $anon = "$color-$animal";
+            $html = str_replace("{{user}}", $anon, $html);
         }else {
             $html = str_replace("{{user}}", $user, $html);
         }
+        // ---------------------------------------------------------------------
         
+        
+        // start replacing -----------------------------------------------------
+        $html = str_replace("{{id}}", $id, $html);
         $html = str_replace("{{date}}", $date, $html);
         $html = str_replace("{{title}}", $title, $html);
         $html = str_replace("{{tags}}", $tag_html, $html);
@@ -81,50 +84,43 @@ function process_data($rows, $type){
         }else {
             $html = str_replace("{{day}}", "inactive", $html);
         }
-
+        
         if($r_week){
             $html = str_replace("{{week}}", "active", $html);
         }else {
             $html = str_replace("{{week}}", "inactive", $html);
         }
-
+        
         if($r_month){
             $html = str_replace("{{month}}", "active", $html);
         }else {
             $html = str_replace("{{month}}", "inactive", $html);
         }
-
+        
         if($r_year){
             $html = str_replace("{{year}}", "active", $html);
         }else {
             $html = str_replace("{{year}}", "inactive", $html);
         }
-
-                
-        
         $html = str_replace("{{text}}", $text, $html);
-        yield $html;
+        // ---------------------------------------------------------------------
+        
+        echo $html;
     }
 }
 
 
 
 function show_public($columns){
-    
     $rows = Database::select_all('tils', $columns);
-    $html = array_map("process_data",  $rows, "public");
-    foreach($html as $h){
-        echo $h;
-    }
+    $html = call_user_func("process_data",  $rows, "public");
 }
 
 
 function show_personal($columns, $user){
-    $rows = Database::select_all('tils', $columns);
-    $html = array_map("process_data",  $rows, "private");
-    foreach($html as $h){
-        echo $h;
-    }
+    $rows = Database::select('tils', $columns, $user);
+    $html = call_user_func("process_data",  $rows, "personal");
+}
 
     // // TODO ricordarsi di inserire USER e cambiare funziona da select_all
     // $rows = Database::select_all('tils', $columns);
@@ -198,7 +194,7 @@ function show_personal($columns, $user){
     //     $html = str_replace("{{text}}", $text, $html);
     //     echo $html;
     // }
-}
+// }
 
 
 

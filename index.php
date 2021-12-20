@@ -144,15 +144,18 @@ Route::add('/settings/([/-0-9a-zA-Z]*)/',function($q){
     // } else {
       //   include_once __DIR__ . "/view/403.php";
       // }
-    });
-    Route::add('/settings/([/-0-9a-zA-Z]*)',function($q){
-      // if($_SESSION['logged']){
-        include_once __DIR__ . "/view/settings.php";
-        // } else {
-          //   include_once __DIR__ . "/view/403.php";
-          // }
-        });
+  });
+Route::add('/settings/([/-0-9a-zA-Z]*)',function($q){
+  // if($_SESSION['logged']){
+    include_once __DIR__ . "/view/settings.php";
+    // } else {
+      //   include_once __DIR__ . "/view/403.php";
+      // }
+});
         
+Route::add('/data-management',function(){
+    include_once __DIR__ . "/view/data-management.php";
+});
 
 // ==========================      QUERY        ================================
 // =============================================================================

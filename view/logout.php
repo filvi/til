@@ -11,17 +11,14 @@ $_SESSION["logged"] = FALSE;
                 <div class="col order-sm-12 order-md-1 d-md-flex align-items-center justify-content-center">
                     <div class="align-self-center my-auto whitish py-5 px-5 mycard rounded">
                         <h1 class="myred-text se">Logout</h1>
-                        <p class="mb-4">Sorry to see you leave!</p>
-                        <form method="post" action="/post-login">
-                            <h2 class="sr-only">Login Form</h2>
-                            <div class="illustration"></div>
-                            <div class="form-group"><label class="ml-1 mb-1">Username/email</label><input class="form-control py-4" type="email" id="email" name="email" required="required" value="<?php if(isset($username)){echo $username;}?>"></div>
-                            <div class="form-group"><label class="ml-1 mb-1">Password</label><input class="form-control py-4" type="password" id="password" name="password" required="required"></div>
-                            <div class="form-group">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label mb-4" for="formCheck-1">Remember me</label></div>
-                            </div>
-                            <div class="form-group d-flex align-items-center align-content-center align-self-center"><button class="btn login py-2 px-3 se pt-3 rounded font-weight-bold letter-spacing-1 fs-2 btn-fill-red" type="submit">Done</button><a class="btn login py-2 px-3 se pt-3 rounded font-weight-bold letter-spacing-1 ml-3 btn-outline-red" role="button" href="#">Forgot password?</a></div>
-                        </form>
+                        <p class="mb-4 se">Sorry to see you leave
+                            <br>
+                            <br>
+                            Feel free to come back when you want :)
+                            <br>
+                            <br>
+                             un<img class="logo pb-3 d-inline-block" src="/assets/img/til_rect.png?h=c9f2fb6f4f31416c7f7314d7d8e0236d"> then... take care</p>
+
                         <div id="tape-section" class="tape-section"></div>
                     </div>
                 </div>

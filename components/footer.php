@@ -18,6 +18,7 @@
                         <li><a href="#">Contribute on Github</a></li>
                         <li><a href="#">Donate</a></li>
                         <li><a href="#">Share with friends</a></li>
+                        <li><a href="#">Become a moderator</a></li>
                     </ul>
                 </div><!-- End: Support -->
                 <!-- Start: About -->
@@ -25,7 +26,7 @@
                     <h3 class="se letter-spacing-1">About</h3>
                     <ul>
                         <li><a href="#">This project</a></li>
-                        <li><a href="#">Filippo Vicari [developer]</a></li>
+                        <li><a class="whitelist" href="https://filippovicari.com">Filippo Vicari [developer]</a></li>
                         <li><a href="#">Giulia Maruzzelli [illustrator]</a></li>
                     </ul>
                 </div><!-- End: About -->
