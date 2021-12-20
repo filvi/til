@@ -1,0 +1,3 @@
+Animals: https://github.com/hzlzh/Domain-Name-List/blob/master/Animal-words.txt
+Colors: https://github.com/imsky/wordlists/blob/master/adjectives/colors.txt
+Dot env loader: https://dev.to/fadymr/php-create-your-own-php-dotenv-3k2i

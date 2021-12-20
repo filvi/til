@@ -110,7 +110,8 @@ tape-section:first-of-type {
     background-color: var(--tape-gray);
     opacity: .5;
     border-right: 1px dotted var(--tape-edge-gray);
-    border-left: 1px dotted var(--tape-edge-gray)
+    border-left: 1px dotted var(--tape-edge-gray);
+    margin-top:17px;
 }
 
 .tape-section:last-of-type::after {

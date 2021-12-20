@@ -78,7 +78,6 @@ class Database{
 
         $sql_col = implode(", ", $columns);
 
-        $count = 0;
         $where = "";
         $bind_v = [];
 
@@ -88,7 +87,7 @@ class Database{
         }
         $where = substr($where, strlen($where) - 4);
 
-        $sql = "SELECT $sql_col FROM $table WHERE  id=? AND firstname=? AND lastname=?";
+        $sql = "SELECT $sql_col FROM $table WHERE  $where";
 
         $stmt = $conn->prepare($sql);
         $bind = $stmt->bind_param("sss",  ...$bind_v);
@@ -96,17 +95,19 @@ class Database{
         $stmt->bind_result($result);
         $stmt->fetch();
         
+        $ret = [];
         
         // TODO cambiami con una funzione passata come parametro
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+              $ret[] = $row;
             }
         } else {
             echo "0 results";
         }
         self::close($conn, $stmt);
+        return $ret;
     }
 
 }

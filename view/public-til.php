@@ -16,14 +16,12 @@ $type = "public";
                 </div>
                 <?php
                     include("components/til_entry.php");
+                    $columns = ['*'];
+                    show_public($columns);
                 ?>
                 <div id="tape-section" class="tape-section"></div>
             </div>
         </div>
     </div><!-- End: 1 Row 2 Columns -->
     <?php 
-    if(isset($q)){
-        include_once("components/new-til.php"); 
-    
-    }
     include_once("components/footer.php"); ?>

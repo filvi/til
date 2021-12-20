@@ -23,6 +23,10 @@ include_once("components/navbar.php");
                 </div>
                 <?php
                 include("components/til_entry.php");
+                $columns = ['*'];
+                $user["USER"] = "filvi";
+
+                show_personal($columns, $user);
                 ?>
 
                 <div id="tape-section" class="tape-section"></div>
