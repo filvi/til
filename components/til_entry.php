@@ -79,6 +79,24 @@ function process_data(array $rows, $type){
         $html = str_replace("{{title}}", $title, $html);
         $html = str_replace("{{tags}}", $tag_html, $html);
         
+        
+        // change icon for personal til public ---------------------------------
+        if ($is_public){
+            $html = str_replace("{{is_public}}", "public", $html);
+        } else{
+            $html = str_replace("{{is_public}}", "private", $html);
+        }
+        // ---------------------------------------------------------------------
+        
+        // change icon for personal til anonymous ------------------------------
+        if ($is_anonymus){
+            $html = str_replace("{{is_anon}}", "anonymous", $html);
+        } else {
+            $html = str_replace("{{is_anon}}", "not anonymous", $html);
+        }
+        $html = str_replace("{{is_anon}}", $is_anonymus, $html);
+        // ---------------------------------------------------------------------
+        
         // TODO inserire qui il discorso se data passata come terza variabile
         // active - inactive - past
         if($r_day){

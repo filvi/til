@@ -95,6 +95,10 @@ Route::add('/activate/([/-0-9a-zA-Z]*)',function($user){
 
 
 // SETTINGS ====================================================================
+Route::add('/settings/active',function(){
+  $first_time = 1;
+  include_once __DIR__ . "/view/settings.php";
+});
 Route::add('/settings',function(){
   include_once __DIR__ . "/view/settings.php";
 });

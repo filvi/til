@@ -295,12 +295,13 @@ footer {
 }
 
 .reminder-text-inactive {
+    padding: 2px 4px;
     text-decoration-line: line-through;
-    color: var(--mygrey4)
+    color: var(--mygrey4);
 }
 
 .reminder-text-active {
-    color: var(--myred)
+    color: var(--mygrey0)
 }
 
 .til-date {
@@ -332,6 +333,8 @@ footer {
     border-width: 3px;
     color: var(--mygrey0);
 }
+
+
 
 .delete-btn,
 .edit-btn,
@@ -1036,4 +1039,11 @@ input{
 .mycard-footer{
     background-image: url(../../assets/img/navbar.jpg?h=d65a8cd…) !important;
     background-repeat: repeat;
+}
+
+.mycard-footer p:first-child  {
+    text-overflow: ellipsis;   /* IE, Safari (WebKit) */
+    overflow:hidden;              /* don't show excess chars */
+    white-space:nowrap;     
+    width: 30%;   
 }

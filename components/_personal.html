@@ -1,42 +1,32 @@
 <div class="row my-3 mx-2">
     <div class="col">
         <div class=" bg-white rounded  mb-4  pt-4">
-            <div class="d-flex flex-columns justify-content-end px-4">
+            <div class="d-flex flex-columns align-items-center justify-content-end px-4">
                 <h3 class="se d-block mygrey-text flex-grow-1">{{title}} id:{{id}}</h3>
+                <div class="px-4 d-flex mb-2">
+                    <div class="d-flex w-100">
+                        <div class="mx-1 align-self-end">
+                            <button
+                                class="btn edit-btn rounded d-inline-block align-self-center border-3  mx-0 px-2 py-2 btn-outline-teal"
+                                type="button">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </div>
+                        <div class="ml-1 align-self-end">
+                            <button
+                                class="btn font-weight-bold delete-btn rounded bg-transparent border-3 d-inline-block align-self-center px-2 py-2 btn-outline-red"
+                                type="button">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+    
+    
+                </div>
             </div>
             <p class="mb-0 mt-1 d-inline-block px-4 pb-4" style="font-family: Roboto, sans-serif;">{{text}}<br>
             </p>
-            <div class="px-4 d-flex mb-4">
-                <div class="d-flex w-100">
-                    <div class="mx-1 align-self-end">
-                        <button
-                            class="btn edit-btn rounded d-inline-block align-self-center border-3  mx-0 px-2 py-2 btn-outline-teal"
-                            type="button">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                    <div class="ml-1 align-self-end">
-                        <button
-                            class="btn font-weight-bold delete-btn rounded bg-transparent border-3 d-inline-block align-self-center px-2 py-2 btn-outline-red"
-                            type="button">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
 
-                <div class="mr-1">
-                    <div class="btn til-button-{{day}} font-weight-bold px-2 py-2" type="button">D</div>
-                </div>
-                <div class="mx-1">
-                    <div class="btn til-button-{{week}} font-weight-bold px-2 py-2" type="button">W</div>
-                </div>
-                <div class="mx-1">
-                    <div class="btn til-button-{{month}} rounded font-weight-bold px-2 py-2" type="button">M</div>
-                </div>
-                <div class="ml-1">
-                    <div class="btn til-button-{{year}} font-weight-bold px-2 py-2" type="button">Y</div>
-                </div>
-            </div>
 
             <div class="mycard-footer py-2">
                 <div class="d-flex flex-row my-1 px-4 ">
@@ -45,6 +35,35 @@
                     </p>
                     <p class="se font-weight-bold mb-0 d-block">
                         <i class="myred-text far fa-calendar-alt ml-4 mr-2"></i>{{date}}</p>
+                    <p class="se font-weight-bold mb-0 d-block">
+                        <i class="myred-text far fa-eye ml-4 mr-2"></i>
+                        {{is_public}}</p>
+                    <p class="se font-weight-bold mb-0 d-block">
+                        <i class="myred-text fas fa-user-secret ml-4 mr-2"></i>
+                        {{is_anon}}</p>
+
+                    <p class="se font-weight-bold mb-0 d-block">
+                        <i class="myred-text fas fa-envelope-open-text ml-4 mr-2"></i>
+                        <span class="mx-2 reminder-text-{{day}}">D</span>
+                        <span class="mx-2 reminder-text-{{week}}">W</span>
+                        <span class="mx-2 reminder-text-{{month}}">M</span>
+                        <span class="mx-2 reminder-text-{{year}}">Y</span>
+                    </p>
+
+
+
+                    <!-- <div class="mr-1">
+        <div class="btn til-button- font-weight-bold px-2 py-2" type="button">D</div>
+    </div>
+    <div class="mx-1">
+        <div class="btn til-button- font-weight-bold px-2 py-2" type="button">W</div>
+    </div>
+    <div class="mx-1">
+        <div class="btn til-button- rounded font-weight-bold px-2 py-2" type="button">M</div>
+    </div>
+    <div class="ml-1">
+        <div class="btn til-button- font-weight-bold px-2 py-2" type="button">Y</div>
+    </div> -->
                 </div>
             </div>
         </div>

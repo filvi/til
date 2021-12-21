@@ -11,7 +11,15 @@ include_once("components/navbar.php");
                 <div class="whitish py-5 px-5 mycard rounded">
                     <div class="row mb-3 text-center">
                         <div class="col-6 mx-auto px-0">
-                            <h1 class="myred-text se mb-0 w-100 text-center">Settings</h1>
+                            <?php
+                            if (isset($first_time)){
+                                echo '<h1 class="myred-text se mb-0 w-100 text-center">Welcome</h1>
+                                <h6 class="text-center se mb-5 mygray-text"> Let\'s set things up real quick</h6>';
+                            } else {
+                                echo '<h1 class="myred-text se mb-0 w-100 text-center">Settings</h1>';
+                            }
+                            ?>
+                            
                         </div>
                     </div>
                     <form>
@@ -67,6 +75,7 @@ include_once("components/navbar.php");
                                 style="font-size: 20px;">Default: European format [dd/mm/yyyy]</label>
                         </div>
                         <!-- ======================== </date format> ======================== -->
+                        <? if(!isset($first_time)){?>
                         <hr>
                         <!-- ======================== <change password> ======================== -->
                         <h4 class="text-center se my-5 myred-text">Reset password</h4>
@@ -136,6 +145,7 @@ include_once("components/navbar.php");
                             class="d-flex justify-content-end align-items-center se font-weight-bold mb-0 text-right d-inline-block mx-4"
                             style="font-size: 20px;">This action is &nbsp; <span class="se myred-text">NOT</span>&nbsp;reversible... BEWARE</label>
                         </div>
+                        <?php }?>
                         <hr>
                         <!-- ======================== </data delition> ======================== -->
                         <div class="text-center mt-5">
