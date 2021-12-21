@@ -79,6 +79,8 @@ function process_data(array $rows, $type){
         $html = str_replace("{{title}}", $title, $html);
         $html = str_replace("{{tags}}", $tag_html, $html);
         
+        // TODO inserire qui il discorso se data passata come terza variabile
+        // active - inactive - past
         if($r_day){
             $html = str_replace("{{day}}", "active", $html);
         }else {

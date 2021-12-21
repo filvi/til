@@ -112,14 +112,14 @@ class Database{
       echo "0 results";
     }
     // -------------------------------------------------------------------------
-
-
+    
+    
     self::close($conn, $stmt);
     return $ret;
   }
-
+  
   private static function get_pepper(){
-    // getting pepper for each user ==========================================
+    // getting pepper for each user --------------------------------------------
     $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     $pepper = "";
     for ($i=0; $i < 22; $i++) {
@@ -128,35 +128,39 @@ class Database{
       $pepper .= $entry;
     }
     return $pepper;
-    // =======================================================================
+    // -------------------------------------------------------------------------
   }
-
+  
   
   public static function signup(string $user, string $email, string $password){
     
     $conn = self::connect();
+    
 
-    // Hasing, salting and peppering password ================================
+
+    // Hasing, salting and peppering password ----------------------------------
     $pepper = self::get_pepper();
     $password = $password . $pepper;
     $password_hash = password_hash($password, PASSWORD_DEFAULT, array('cost' => 9));
-    // =======================================================================
+    // -------------------------------------------------------------------------
     
-    
-    // SQL query =============================================================
-    $sql =  "INSERT INTO `users` (`ID`, `USER`, `EMAIL`, `PASS`, `PEPPER`, `ACTIVATED`) VALUES (NULL, ?, ?, ?, ?, 0);";
-    $stmt = $conn->prepare($sql);
-    // =======================================================================
     
 
-    // check for errors ======================================================
+    // SQL query ---------------------------------------------------------------
+    $sql =  "INSERT INTO `users` (`ID`, `USER`, `EMAIL`, `PASS`, `PEPPER`, `ACTIVATED`) VALUES (NULL, ?, ?, ?, ?, 0);";
+    $stmt = $conn->prepare($sql);
+    // -------------------------------------------------------------------------
+    
+    
+
+    // check for errors --------------------------------------------------------
     if (!$stmt){
       error_log("Error while creating user: " . $conn->error);
     }
     $stmt->bind_param("ssss", $user, $email, $password_hash, $pepper);
     $stmt->execute();      
-    // =======================================================================
-
+    // -------------------------------------------------------------------------
+    
     self::close($conn, $stmt);
   }
     
