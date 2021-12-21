@@ -1,5 +1,5 @@
 <?php
-$user = "banana-cambiami";
+$user = "filvi";
 if(!$_SESSION['logged']){
 $navbar = <<<HTML
 <!-- Start: Navigation with Button -->

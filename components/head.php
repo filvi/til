@@ -2,7 +2,7 @@
     if (empty(session_id())){
         session_start();
     }; 
-    $_SESSION['username'] = "filvi"; // TODO remove this debug part
+    $_SESSION['username'] = "banana"; // TODO remove this debug part
 ?>
 <!DOCTYPE html>
 <html lang="en-us">
