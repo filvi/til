@@ -67,12 +67,21 @@ Route::add('/signup',function(){
 
 
 // =============================================================================
-// =====================      CONFIRM EMAIL       ==============================
+// ==========================      POST SIGNUP       ===========================
 // =============================================================================
 
-Route::add('/confirm-email',function(){
-  include_once __DIR__ . "/view/confirm-email.php";
-});
+Route::add('/post-signup',function(){
+  include_once __DIR__ . "/models/post-signup.php";
+}, "post");
+
+
+  // =============================================================================
+  // =====================      CONFIRM EMAIL       ==============================
+  // =============================================================================
+
+  Route::add('/confirm-email',function(){
+    include_once __DIR__ . "/view/confirm-email.php";
+  });
 
 Route::add('/settings',function(){
   include_once __DIR__ . "/view/settings.php";

@@ -12,7 +12,7 @@ include_once("components/navbar.php");
                     <div class="align-self-center my-auto whitish py-5 px-5 mycard rounded">
                         <h1 class="myred-text se">Sign Up</h1>
                         <p class="mb-4">Just a couple of info to start your journey with us</p>
-                        <form method="post">
+                        <form method="post" action="/post-signup">
                             <h2 class="sr-only">Login Form</h2>
                             <div class="illustration"></div><div class="form-group">
                                 <label class="se font-weight-bold ml-1 mb-1">Username</label>   
