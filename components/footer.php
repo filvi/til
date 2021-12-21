@@ -6,7 +6,7 @@
                 <div class="col-sm-6 col-md-3 item">
                     <h3 class="se letter-spacing-1">Legal notes</h3>
                     <ul>
-                        <li><a href="#">About data</a></li>
+                        <li><a href="/data-management">About data</a></li>
                         <li><a href="#">Terms and conditions</a></li>
                         <li><a href="#">Privacy</a></li>
                     </ul>
@@ -15,7 +15,7 @@
                 <div class="col-sm-6 col-md-3 item">
                     <h3 class="se letter-spacing-1">Support this project</h3>
                     <ul>
-                        <li><a href="#">Contribute on Github</a></li>
+                        <li><a class="whitelist" target="_blank" href="https://github.com/filvi/til">Contribute on Github</a></li>
                         <li><a href="#">Donate</a></li>
                         <li><a href="#">Share with friends</a></li>
                         <li><a href="#">Become a moderator</a></li>
@@ -25,8 +25,8 @@
                 <div class="col-sm-6 col-md-3 item">
                     <h3 class="se letter-spacing-1">About</h3>
                     <ul>
-                        <li><a href="#">This project</a></li>
-                        <li><a class="whitelist" href="https://filippovicari.com">Filippo Vicari [developer]</a></li>
+                        <li><a href="/the-project">This project</a></li>
+                        <li><a class="whitelist" target="_blank" href="https://filippovicari.com">Filippo Vicari [developer]</a></li>
                         <li><a href="#">Giulia Maruzzelli [illustrator]</a></li>
                     </ul>
                 </div><!-- End: About -->
@@ -34,8 +34,8 @@
                     <h3 class="se letter-spacing-1">Need help?</h3>
                     <ul>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Something went wrong?</a></li>
-                        <li><a href="#">Suggests improvements</a></li>
+                        <li><a class="whitelist" target="_blank" href="https://github.com/filvi/til/issues">Something went wrong?</a></li>
+                        <li><a href="/suggest-improvements">Suggests improvements</a></li>
                     </ul>
                 </div><!-- End: About -->
             </div><!-- Start: Copyright -->

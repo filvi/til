@@ -22,7 +22,7 @@ $navbar = <<<HTML
                         <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/the-project" >The Project</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/about-me" >About Me</a>
+                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/support" >Support this project</a>
                      </li>
                     <li class="nav-item" >
                         <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/data-management" >Data Management</a>
