@@ -34,30 +34,29 @@ public static function run($basepath = '/'){
   }else{
     $path = '/';
   }
-
+  
   // Get current request method
   $method = $_SERVER['REQUEST_METHOD'];
-
+  
   $path_match_found = false;
-
+  
   $route_match_found = false;
-
+  
   foreach(self::$routes as $route){
-
+    
     // If the method matches check the path
-
+    
     // Add basepath to matching string
     if($basepath!=''&&$basepath!='/'){
       $route['expression'] = '('.$basepath.')'.$route['expression'];
     }
-
+    
     // Add 'find string start' automatically
     $route['expression'] = '^'.$route['expression'];
-
+    
     // Add 'find string end' automatically
     $route['expression'] = $route['expression'].'$';
-
-
+    
     // Check path match	
     if(preg_match('#'.$route['expression'].'#',$path,$matches)){
 
@@ -79,9 +78,7 @@ public static function run($basepath = '/'){
         // Do not check other routes
         break;
       }
-
-
-    }
+    } 
   }
 
   // No matching route was found

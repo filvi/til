@@ -118,11 +118,11 @@ class Database{
     return $ret;
   }
   
-  private static function get_pepper(){
+  private static function get_random(int $len) : string{
     // getting pepper for each user --------------------------------------------
     $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     $pepper = "";
-    for ($i=0; $i < 22; $i++) {
+    for ($i=0; $i < $len; $i++) {
       $index = rand(0, strlen($chars));
       $entry = substr($chars, $index, 1);
       $pepper .= $entry;
@@ -132,41 +132,67 @@ class Database{
   }
   
   
-  public static function signup(string $user, string $email, string $password){
+  public static function signup(string $user, string $email, string $password) : bool{
     
     $conn = self::connect();
-    
-
 
     // Hasing, salting and peppering password ----------------------------------
-    $pepper = self::get_pepper();
+    $pepper = self::get_random(22);
     $password = $password . $pepper;
     $password_hash = password_hash($password, PASSWORD_DEFAULT, array('cost' => 9));
     // -------------------------------------------------------------------------
     
-    
+    // Verification code -------------------------------------------------------
+    $code = self::get_random(4) . "-" . self::get_random(4) . "-" . self::get_random(4) . "-" . self::get_random(4);
+    // -------------------------------------------------------------------------
 
+    
     // SQL query ---------------------------------------------------------------
-    $sql =  "INSERT INTO `users` (`ID`, `USER`, `EMAIL`, `PASS`, `PEPPER`, `ACTIVATED`) VALUES (NULL, ?, ?, ?, ?, 0);";
+    $sql =  "INSERT INTO `users` (`ID`, `USER`, `EMAIL`, `PASS`, `PEPPER`, `ACTIVATED`, `CODE`) VALUES (NULL, ?, ?, ?, ?, 0, ?);";
     $stmt = $conn->prepare($sql);
     // -------------------------------------------------------------------------
     
     
-
+    
     // check for errors --------------------------------------------------------
     if (!$stmt){
       error_log("Error while creating user: " . $conn->error);
     }
-    $stmt->bind_param("ssss", $user, $email, $password_hash, $pepper);
+    $stmt->bind_param("sssss", $user, $email, $password_hash, $pepper, password_hash($code, PASSWORD_DEFAULT));
     $stmt->execute();      
     // -------------------------------------------------------------------------
     
     self::close($conn, $stmt);
+    return $code;
   }
+
+  public static function activate(string $user, string $code) : bool{
+    $conn = self::connect();
+
+    // get the desidered columns -----------------------------------------------
+    $sql = "SELECT `CODE` FROM `users` WHERE USER=? LIMIT 1";
+    // -------------------------------------------------------------------------
     
+    
+    // Retrieving the results --------------------------------------------------
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();    
+    
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        $check = $row["CODE"];
+      }
+    }
 
-
-
+    if(password_verify($code, $check)){
+      return TRUE;
+    } else {
+      error_log("Access denied for user $user and code $code");
+      return FALSE;
+    }
+  } 
 }
 
 

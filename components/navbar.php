@@ -1,5 +1,5 @@
 <?php
-$username = "banana-cambiami";
+$user = "banana-cambiami";
 if(!$_SESSION['logged']){
 $navbar = <<<HTML
 <!-- Start: Navigation with Button -->
@@ -53,7 +53,7 @@ HTML;
                         <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/new">New TIL</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/til/$username">My stuff</a>
+                        <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/til/$user">My stuff</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold letter-spacing-1 se redonhover" href="/til/public"">Public tilmeline</a>

@@ -36,7 +36,7 @@ Route::add('/welcome',function(){
 // ==========================      LOGIN       =================================
 // =============================================================================
 
-Route::add('/login/([/-0-9a-zA-Z]*)',function($username){
+Route::add('/login/([/-0-9a-zA-Z]*)',function($user){
   include_once __DIR__ . "/view/login.php";
 });
 
@@ -75,17 +75,30 @@ Route::add('/post-signup',function(){
 }, "post");
 
 
-  // =============================================================================
-  // =====================      CONFIRM EMAIL       ==============================
-  // =============================================================================
+// =============================================================================
+// =====================      CONFIRM EMAIL       ==============================
+// =============================================================================
 
-  Route::add('/confirm-email',function(){
-    include_once __DIR__ . "/view/confirm-email.php";
-  });
+Route::add('/confirm-email',function(){
+  include_once __DIR__ . "/view/confirm-email.php";
+});
+// =============================================================================
 
+
+// =====================      CONFIRMATION CODE    ==============================
+Route::add('/activate/([/-0-9a-zA-Z]*)',function($user){
+  include_once __DIR__ . "/models/activate.php";
+});
+// =============================================================================
+
+
+
+
+// SETTINGS ====================================================================
 Route::add('/settings',function(){
   include_once __DIR__ . "/view/settings.php";
 });
+// =============================================================================
 
 
 // =============================================================================
@@ -95,7 +108,7 @@ Route::add('/settings',function(){
 Route::add('/forgot-password',function(){
   include_once __DIR__ . "/view/forgot-password.php";
 });
-Route::add('/forgot-password/([/-0-9a-zA-Z]*)',function($username){
+Route::add('/forgot-password/([/-0-9a-zA-Z]*)',function($user){
     include_once __DIR__ . "/view/forgot-password.php";
   });
 
@@ -176,8 +189,8 @@ Route::add('/q',function(){
 
 
 
-Route::add('/vector',function(){
-  include_once __DIR__ . "/view/vec.php";
+Route::add('/unauthorized',function(){
+  include_once __DIR__ . "/view/403.php";
 });
 
 

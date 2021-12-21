@@ -14,7 +14,7 @@ include_once("components/navbar.php");
                         <form method="post">
                             <h2 class="sr-only">Login Form</h2>
                             <div class="illustration"></div>
-                            <div class="form-group"><label class="ml-1 mb-1">Username / Email</label><input class="form-control py-4" type="email" id="email" name="email" required="required" value="<?php if(isset($username)){echo $username;}?>"></div>
+                            <div class="form-group"><label class="ml-1 mb-1">Username / Email</label><input class="form-control py-4" type="email" id="email" name="email" required="required" value="<?php if(isset($user)){echo $user;}?>"></div>
                             <div class="form-group d-flex align-items-center align-content-center align-self-center"><button class="btn login py-2 px-3 se pt-3 rounded font-weight-bold letter-spacing-1 fs-2 mx-auto btn-fill-red mt-2" type="submit">Send</button></div>
                         </form>
                         <div id="tape-section" class="tape-section"></div>

@@ -18,7 +18,7 @@ include_once("components/navbar.php");
                                 <label class="ml-1 mb-1">
                                     Username/email
                                 </label>
-                                <input class="form-control py-4"  pattern="[a-zA-Z0-9-_.]{5, 16}" maxlength="16" type="text" id="username" name="username" required="required" value="<?php if(isset($username)){echo $username;}?>">
+                                <input class="form-control py-4"  pattern="[a-zA-Z0-9-_.]{5, 16}" maxlength="16" type="text" id="username" name="username" required="required" value="<?php if(isset($user)){echo $user;}?>">
                             </div>
                             <div class="form-group">
                                 <label class="ml-1 mb-1">
