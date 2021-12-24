@@ -10,7 +10,14 @@ include_once("components/navbar.php");
                 <div class="col order-sm-12 order-md-1 d-md-flex align-items-center justify-content-center">
                     <div class="align-self-center my-auto whitish py-5 px-5 mycard rounded">
                         <h1 class="myred-text se">Login</h1>
-                        <p class="mb-4">Happy to see you again!</p>
+                        
+                        <?php 
+                        if(isset($_GET['incorrect'])){
+                            echo '<p class=" myred-text font-weight-bold mb-4">Wrong username or password!</p>';
+                        } else {
+                            echo '<p class="mb-4">Happy to see you again!</p>';
+                        } 
+                        ?>
                         <form method="post" action="/post-login">
                             <h2 class="sr-only">Login Form</h2>
                             <div class="illustration"></div>

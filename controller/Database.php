@@ -193,6 +193,38 @@ class Database{
       return FALSE;
     }
   } 
+
+  public static function login(string $user) : array{
+    $conn = self::connect();
+
+    // get the desidered columns -----------------------------------------------
+    $sql = "SELECT * FROM `users` WHERE USER=? LIMIT 1";
+    // -------------------------------------------------------------------------
+    
+    
+    // Retrieving the results --------------------------------------------------
+    $stmt = $conn->prepare($sql);
+    if (!$stmt){
+      error_log("Error " . $conn->error . $conn->errno);
+    }
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();    
+    
+    $ret = [];
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        $ret["mail"] = $row["EMAIL"];
+        $ret["pass"] = $row["PASS"];
+        $ret["pepper"] = $row["PEPPER"];
+        $ret["activated"] = $row["ACTIVATED"];
+      }
+    } else {
+      $ret[] = $sql;
+    }
+
+    return $ret;
+  } 
 }
 
 

@@ -1,5 +1,5 @@
 <?php
-// https://steampixel.de/en/simple-and-elegant-url-routing-with-php/
+
 session_start();
 
 // Include router class
@@ -44,8 +44,8 @@ Route::add('/login',function(){
   include_once __DIR__ . "/view/login.php";
 });
 Route::add('/post-login',function(){
-  include_once __DIR__ . "/view/post-login.php";
-  include_once __DIR__ . "/view/home.php";
+  include_once __DIR__ . "/models/post-login.php";
+  
 }, "post");
 
 // =============================================================================

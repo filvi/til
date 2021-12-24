@@ -1,7 +1,7 @@
 <?php
 include_once("components/head.php");
-include_once("components/navbar.php");
 $_SESSION["logged"] = FALSE;
+include_once("components/navbar.php");
 ?>
 
     <!-- Start: 1 Row 2 Columns -->

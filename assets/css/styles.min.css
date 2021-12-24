@@ -1048,3 +1048,33 @@ input{
     white-space:nowrap;     
     width: 30%;   
 }
+
+.info_icon {
+    color:var(--mygrey4);
+}
+
+
+
+
+/* Popup box BEGIN */
+#alert-container{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:60px;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+
+
+.alert-link {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+/* Popup box BEGIN */

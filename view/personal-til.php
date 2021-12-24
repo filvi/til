@@ -18,8 +18,7 @@ include_once("components/navbar.php");
                 <?php
                 include("components/til_entry.php");
                 $columns = ['*'];
-                $user = $_SESSION['username'];
-                show_personal($columns, $user);
+                show_personal($columns, $_SESSION["username"]);
                 ?>
 
                 <div id="tape-section" class="tape-section"></div>

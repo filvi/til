@@ -17,7 +17,7 @@ include_once("components/navbar.php");
                         <h3 class="mygrey-text se font-weight-bold" style="color: #073642;">Why?</h3>
                         <p>Every day we process more information that we are able to remember, unfortunately, somemetimes we forget them :(<br><br>But there is hope!&nbsp;<br><br>You are maybe wondering why the domain is todayilearn.it instead of todayilearned.it this is because this website is a proactive way to learn new interesting stuff and not just a place where you dump stuff you'll never look into again.<br><br>Are you ready to start learning and retaining what you learned?</p>
                         <h3 class="mygrey-text se font-weight-bold">How?</h3>
-                        <p>Actually it’s pretty simple:&nbsp;</p>
+                        <p>Actually it's pretty simple:&nbsp;</p>
                         <ol>
                             <li> Write down what you learned</li>
                             <li>Choose when to be reminded&nbsp;<small class="myblack-text">[default = after 1d, 1w, 1m, 1y]</small></li>

@@ -10,6 +10,15 @@ include_once("components/navbar.php");
                 <div class="col-md-6 d-flex align-items-xl-center">
                     <div class="align-self-center my-auto whitish py-5 px-5 mycard rounded">
                         <div id="tape-section" class="tape-section"></div>
+                        <?php
+                        if (isset($_GET["login"])){
+                            echo<<<HTML
+                            <h1 class="myred-text se">Oh noo</h1>
+                            <h4 class="se mygrey-text d-inline-block my-4">This account has not been activated yet</h4>
+                            <p>Please have a look in SPAM folder, maybe the email is hiding there</p>
+                            HTML;
+                        } else {
+                            ?>
                         <h1 class="myred-text se">Hurray!</h1>
                         <p>Welcome on board, please check your email, there should be an activation link to start using this website.</p>
                         <h3 class="mygrey-text se">In the meantime</h3>
@@ -22,6 +31,7 @@ include_once("components/navbar.php");
                             <li class="py-2">We are<strong> not interested in collecting data</strong>, we just want to offer a good service online.</li>
                             <li class="py-2">The authors are <strong>not responsible for any content published online.</strong></li>
                         </ul>
+                    <?php } ?>
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-center"><img src="/assets/img/4.%20Confirm.email.png?h=d5693bf772bad24751c1dcfc26a7230f"></div>

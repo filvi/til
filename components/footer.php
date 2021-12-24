@@ -43,7 +43,9 @@
         </div>
     </footer><!-- End: Footer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script  src="/assets/js/main.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 
 </html>
