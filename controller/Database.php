@@ -20,7 +20,7 @@ class Database{
   // ===========================================================================
   
   // Connect ===================================================================
-  private static function close($conn, $stmt = FALSE){
+  private static function close($conn, object $stmt = null){
       if($stmt){
           $stmt->close();
       }
@@ -160,8 +160,20 @@ class Database{
     }
     $stmt->bind_param("sssss", $user, $email, $password_hash, $pepper, password_hash($code, PASSWORD_DEFAULT));
     $stmt->execute();      
+    unset($stmt);
     // -------------------------------------------------------------------------
     
+    
+    // Insert default settings for new user ------------------------------------
+    $sql =  "INSERT INTO `settings` (`ID`, `USER`, `PUBLIC_DEFAULT`, `ANONYMOUS_DEFAULT`, `US_DATE_FORMAT`, `EMAIL_NOTIFICATION`, `AFTER_LOGIN`) VALUES (NULL, ?, 0,0,1,1, 'index');";
+    $stmt = $conn->prepare($sql);
+    if (!$stmt){
+      error_log("Error while creating user: " . $conn->error);
+    }
+    $stmt->bind_param("s", $user);
+    $stmt->execute();      
+    // -------------------------------------------------------------------------
+
     self::close($conn, $stmt);
     return $code;
   }
@@ -225,6 +237,80 @@ class Database{
 
     return $ret;
   } 
+    // -------------------------------------------------------------------------
+  public static function update_settings(string $user, string $setting, string $value) : bool{
+    $conn = self::connect();
+
+    if ($setting == "public"){
+      $col = "PUBLIC_DEFAULT";
+      $type = "is";
+    } elseif($setting == "anonymous"){
+      $col = "ANONYMOUS_DEFAULT";
+      $type = "is";
+    } elseif($setting == "us_date"){
+      $col = "US_DATE_FORMAT";
+      $type = "is";
+    } elseif($setting == "reminder"){
+      $col = "EMAIL_NOTIFICATION";
+      $type = "is";
+    } elseif($setting == "after_login"){
+      $col = "AFTER_LOGIN";
+      $type = "ss";
+    } else {
+      error_log("No option choosen" . $setting);
+      die("No option choosen");
+    }
+    // get the desidered columns -----------------------------------------------
+    $sql = "UPDATE `settings` SET `$col`=? WHERE USER=? ";
+    // -------------------------------------------------------------------------
+    
+    
+    // Retrieving the results --------------------------------------------------
+    $stmt = $conn->prepare($sql);
+    if (!$stmt){
+      die("Error " . $conn->error . $conn->errno);
+    }
+    $stmt->bind_param("$type", $value, $user);
+    $stmt->execute();
+    $result = $stmt->get_result();    
+    
+    self::close($conn, $stmt);
+    return $result;
+  } 
+    // -------------------------------------------------------------------------
+
+  public static function get_settings(string $user) : array{
+    $conn = self::connect();
+
+    // get the desidered columns -----------------------------------------------
+    $sql = "SELECT * FROM `settings` WHERE USER=? LIMIT 1";
+    // -------------------------------------------------------------------------
+    
+    
+    // Retrieving the results --------------------------------------------------
+    $stmt = $conn->prepare($sql);
+    if (!$stmt){
+      error_log("Error " . $conn->error . $conn->errno);
+    }
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();    
+    
+    $ret = [];
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        $ret["public"] = $row["PUBLIC_DEFAULT"];
+        $ret["anonymous"] = $row["ANONYMOUS_DEFAULT"];
+        $ret["us_date"] = $row["US_DATE_FORMAT"];
+        $ret["reminder"] = $row["EMAIL_NOTIFICATION"];
+        $ret["after_login"] = $row["AFTER_LOGIN"];
+      }
+    } else {
+      $ret[] = $sql;
+    }
+
+    return $ret;
+  }
 }
 
 

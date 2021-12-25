@@ -6,7 +6,7 @@ $password = $_POST["password"];
 
 
 $code = Database::signup($user,$email,$password);
-var_dump($code);
+header("Location: /settings/active");
 
 
 ?>

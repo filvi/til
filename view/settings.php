@@ -1,6 +1,12 @@
 <?php
 include_once("components/head.php");
 include_once("components/navbar.php");
+
+
+include_once("controller/Database.php");
+$settings = Database::get_settings($_SESSION["username"]);
+
+
 ?>
 
 <div id="alert-container" class="justify-content-center align-items-center">
@@ -33,11 +39,11 @@ include_once("components/navbar.php");
                             <label
                                 class="d-flex justify-content-end align-items-center mygrey-text se font-weight-bold mb-0 col-2 offset-2 text-right"
                                 >Choose</label>
-                            <select name="page_after_login py-4" class="form-control d-inline-block col-6">
-                                <option class="py-4" value="new"  selected>New TIL</option>
-                                <option class="py-4" value="home">Homepage</option>
-                                <option class="py-4" value="public">Public til</option>
-                                <option class="py-4" value="my_stuff">My stuff</option>
+                            <select onchange="update_settings(this, this.value)" name="after_login" class="form-control d-inline-block col-6">
+                                <option class="py-4" <?php if($settings["after_login"] == "new"){echo "selected";}  ?> value="new"  selected>New TIL</option>
+                                <option class="py-4" <?php if($settings["after_login"] == "home"){echo "selected";}  ?> value="home">Homepage</option>
+                                <option class="py-4" <?php if($settings["after_login"] == "public"){echo "selected";}  ?> value="public">Public til</option>
+                                <option class="py-4" <?php if($settings["after_login"] == "my_stuff"){echo "selected";}  ?> value="my_stuff">My stuff</option>
                             </select>
                             </div>
 
@@ -49,7 +55,7 @@ include_once("components/navbar.php");
                                 <div class="d-flex align-items-center">
                                     <h5 class="se font-weight-bold mx-4" >Make my TILS public by default</h5>
                                     <label class="switch ml-4 ">
-                                        <input type="checkbox" onchange="update_settings(this)" name="cambiami" value="non so">
+                                        <input type="checkbox" onchange="update_settings(this)" <?php if($settings["public"]){echo 'checked="checked"';}?> name="public" value="non so">
                                         <span class="slider round">
                                         </span>
                                     </label>
@@ -60,7 +66,7 @@ include_once("components/navbar.php");
                                 <div class="d-flex align-items-center">
                                     <h5 class="se font-weight-bold mx-4" >Make my TILS anonymous by default</h5>
                                     <label class="switch ml-4 ">
-                                        <input type="checkbox" onchange="update_settings(this)" name="cambiami" value="non so">
+                                        <input type="checkbox" onchange="update_settings(this)" <?php if($settings["anonymous"]){echo 'checked="checked"';}?> name="anonymous" value="non so">
                                         <span class="slider round">
                                         </span>
                                     </label>
@@ -82,7 +88,7 @@ include_once("components/navbar.php");
                                 <div class="d-flex align-items-center">
                                     <h5 class="se font-weight-bold mx-4">Use mm/dd/yyyy [USA]</h5>
                                     <label class="switch ml-4 ">
-                                        <input type="checkbox" onchange="update_settings(this)" name="cambiami" value="non so">
+                                        <input type="checkbox" onchange="update_settings(this)" <?php if($settings["us_date"]){echo 'checked="checked"';}?> name="us_date" value="non so">
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
@@ -99,7 +105,7 @@ include_once("components/navbar.php");
                                 <div class="d-flex align-items-center">
                                     <h5 class="se font-weight-bold mx-4">Stop sending me til reminders by email</h5>
                                     <label class="switch ml-4 ">
-                                        <input type="checkbox" onchange="update_settings(this)" name="cambiami" value="non so">
+                                        <input type="checkbox" onchange="update_settings(this)" <?php if($settings["reminder"]){echo 'checked="checked"';}?> name="reminder" value="non so">
                                         <span class="slider round">
                                         </span>
                                     </label>
@@ -134,29 +140,8 @@ include_once("components/navbar.php");
                         </div>
                         <!-- ======================== </change password> ======================== -->
 
-                        <hr>
-                        <!-- ======================== <data delition> ======================== -->
-                            <h4 class="text-center se my-5 myred-text"></h4>
-                        <div class="form-group row">
-                            <label
-                            class="d-flex justify-content-end align-items-center mygrey-text se font-weight-bold mb-0 col-2 text-right"
-                            >Delete</label>
-                            <label
-                            class="d-flex justify-content-end align-items-center se font-weight-bold mb-0 text-right d-inline-block mx-4"
-                            ></label>
 
-                        </div>
-                        <div class="form-group row">
-                            <label
-                            class="d-flex justify-content-end align-items-center mygrey-text se font-weight-bold mb-0 col-2 text-right"
-                            >Info</label>
-                            <label
-                            class="d-flex justify-content-end align-items-center se font-weight-bold mb-0 text-right d-inline-block mx-4"
-                            ></label>
-                        </div>
-                        <?php }?>
-
-                        <!-- ======================== </data delition> ======================== -->
+                        
                         <hr>
                         <!-- ======================== <Delete all data> ======================= -->
                         <h4 class="text-center se my-5 myred-text">Delete all my data</h4>
@@ -168,11 +153,11 @@ include_once("components/navbar.php");
                                 <p class="mx-4" > <i class="fas fa-info-circle info_icon mr-2 mygrey2-text"></i>This action is &nbsp; <span class="se myred-text">NOT</span>&nbsp;reversible... BEWARE</p>
                                 <div class="row">
                                     <button class="btn login py-2 px-3 se pt-3 rounded font-weight-bold letter-spacing-1 fs-2 btn-fill-red mx-auto" type="submit">Delete everything</button>                            
-                            
-                            </div>
+                                </div>
                             </div>
                         </div>
                         <!-- ================================================================= -->
+                        <?php }?>
                     </form>
                     <div id="tape-section" class="tape-section">
                         </div>

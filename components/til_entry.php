@@ -124,6 +124,8 @@ function process_data(array $rows, $type){
         }
         $html = str_replace("{{text}}", $text, $html);
         // ---------------------------------------------------------------------
+
+        
         
         echo $html;
     }
@@ -133,13 +135,26 @@ function process_data(array $rows, $type){
 
 function show_public($columns){
     $rows = Database::select_all('tils', $columns);
-    $html = call_user_func("process_data",  $rows, "public");
+
+    // if empty
+    if (count($rows)){
+        call_user_func("process_data",  $rows, "public");
+    } else {
+        echo "No tils found";
+    }
 }
 
 
 function show_personal($columns, $user){
     $rows = Database::select('tils', $columns, $user);
-    $html = call_user_func("process_data",  $rows, "personal");
+
+    // if empty
+    if (count($rows)){
+        call_user_func("process_data",  $rows, "personal");
+    } else {
+        echo "No tils found";
+    }
+
 }
 
 
